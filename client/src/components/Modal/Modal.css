@@ -1,0 +1,11 @@
+.customModel_wrapper{
+    animation: modalAni .4s linear forwards;
+}
+
+@keyframes modalAni {
+    from{
+        opacity: 0;
+    } to{
+        opacity: 1;
+    }
+}

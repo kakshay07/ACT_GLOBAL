@@ -1,0 +1,25 @@
+.TableComp thead{
+    background-color: #f3f4f6;
+    text-align: left;
+}
+
+.TableComp tr:hover{
+    background: #f8fafc;
+}
+
+.TableComp td{
+    border-bottom-width: 0px;
+    border-color: #e5e7eb;
+    border-top-width: 1px;
+    font-weight: 500;
+    padding: 10px 20px;
+    white-space: nowrap;
+}
+
+.TableComp th{
+    color: #111827;
+    font-weight: 600;
+    padding: 10px 20px;
+    text-align: left;
+    white-space: nowrap;
+}
