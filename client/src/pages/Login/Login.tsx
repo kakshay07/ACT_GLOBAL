@@ -3,7 +3,8 @@ import { useAuth } from '../../contexts/AuthContext';
 import './Login.css';
 import { useEffect, useState } from 'react';
 import { toastError } from '../../utils/SweetAlert';
-import cms from '../../../public/cms.png';
+// import cms from '../../../public/cms.png';
+import app from '../../../public/apple-touch-icon.png'
 import logo from '../../../public/ar-logo1.png';
 import axios from 'axios';
 import { baseURL } from '../../utils/axios';
@@ -151,10 +152,10 @@ export function LoginPage() {
                         <div className="overlay-panel overlay-right">
                             <div>
                                 <img className="w-[25%] mx-auto rounded logoo" src={logo} alt="" />
-                                <h1 className="brand">Global master management</h1>
+                                <h1 className="brand"> Masters management</h1>
                                 {/* <p>Streamlined Operation For Optimal Efficiency</p> */}
                             </div>
-                            <img src={cms} alt="" />
+                            <img src={app} alt="" />
                         </div>
                     </div>
                 </div>

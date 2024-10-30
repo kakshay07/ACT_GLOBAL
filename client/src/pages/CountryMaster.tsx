@@ -198,8 +198,8 @@ export const CountryMaster = () => {
                   </>
                 )}
 
-                {action == "View" ||
-                  (action == "Edit" && (
+                {(action == "View" ||
+                  action == "Edit") && (
                     <>
                       {" "}
                       <InputField
@@ -228,7 +228,7 @@ export const CountryMaster = () => {
                         {...FieldAttributes("COUNTRY_PHONE")}
                       />
                     </>
-                  ))}
+                  )}
               </div>
             </fieldset>
             <hr className="mt-4 border-gray-300 " />
