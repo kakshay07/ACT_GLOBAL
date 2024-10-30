@@ -25,6 +25,7 @@ import { CountryMaster } from './pages/CountryMaster';
 import { StateMaster } from './pages/StateMaster';
 import { CityMaster } from './pages/CityMaster';
 import { BankMaster } from './pages/BankMaster';
+import BankAccountMaster from './pages/BankAccountMaster';
 
 // import { CustomerProfile } from './pages/CustomerProfile';
 // import PincodeMaster from './pages/PincodeMaster';
@@ -234,6 +235,13 @@ export default function App() {
                             </RequireAuth>
                         }
                     ></Route>
+                    <Route
+                    path='/bankAccount'
+                    element={
+                        <RequireAuth>
+                        <BankAccountMaster />
+                        </RequireAuth>
+                    }></Route>
 
                 </Route>
 

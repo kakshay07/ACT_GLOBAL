@@ -2,6 +2,7 @@ import { Request, Router } from "express";
 import { asyncHandler } from "../utils/asyncHandler";
 import { ApiResponse } from "../utils/ApiResponse";
 import {bankModel} from '../models/bank.models'
+import { log } from "console";
 
 
 export const bankRouter=Router();
@@ -106,3 +107,54 @@ bankRouter.get(
       }
     )
   );
+
+  //--- Banck Account Master ----//
+
+  bankRouter.post(
+    '/account',
+    asyncHandler(
+      async (
+        req: Request<
+          unknown,
+          unknown,
+         {
+          ACNT_TYPE?:string;
+          ACNT_DESC?:string;
+         },
+          unknown
+        //   {}
+        >,
+        res
+      ) => {
+        const data = await bankModel.AddBankAccount(req.body);
+        if(data){
+          res.json(new ApiResponse(200 , {},"Added succesfully"))
+        }else {
+          throw new Error('something went wrong!')
+        }
+      }
+    )
+  );
+
+  bankRouter.get('/account',
+    asyncHandler(
+        async (
+          req: Request<
+            unknown,
+            unknown,
+            unknown,
+            unknown
+          //   {}
+          >,
+          res
+        ) => {
+          const data = await bankModel.getBankAccountType();
+          if(data){
+            res.json(new ApiResponse(200 , data))
+          }else {
+            throw new Error('something went wrong!')
+          }
+        }
+      )
+
+  )

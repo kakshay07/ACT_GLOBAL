@@ -41,6 +41,8 @@ const navLinks = [
       {name: 'State Master' ,url:'/state' , icon :'fa-solid fa-flag-usa'},
       {name: 'City Master' ,url:'/city' , icon :'fa-solid fa-city'},
       {name: 'Bank Master' ,url:'/bank' , icon :'fa-solid fa-money-bill'},
+      {name: 'Bank Account Master' ,url:'/bankAccount' , icon :'fa-solid fa-money-bill'},
+
 
 
 

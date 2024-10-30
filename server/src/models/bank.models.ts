@@ -9,6 +9,8 @@ export class bankModel {
   order_sl?: string;
   acnt_type?: string;
   acnt_desc?: string;
+  ACNT_TYPE?:string;
+  ACNT_DESC?:string;
 
   static async getBankName() {
     const _query = 'SELECT BANK_CODE ,BANK_DESC ,ORDER_SL FROM `act-global`.bank_master';
@@ -48,4 +50,25 @@ static async UpdateBank(data:bankModel){
   }
   return;
 }
+
+ //--- Banck Account Master ----//
+
+ static async AddBankAccount(data:bankModel) {
+  const conn = await getConnection();
+  const response = await conn.query("INSERT INTO `act-global`.bank_account_type(ACNT_TYPE, ACNT_DESC) VALUES(?,?)",[data.ACNT_TYPE,data.ACNT_DESC])
+  if(response){
+    return true;
+  }
+  return;
+ }
+
+ static async getBankAccountType() {
+  const _query = 'SELECT ACNT_TYPE ,ACNT_DESC FROM `act-global`.bank_account_type';
+  const response = await query(_query);
+  if (response.result) {
+    return response.data;
+  }
+  return;
+}
+
 }

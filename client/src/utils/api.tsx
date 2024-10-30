@@ -13,6 +13,7 @@ import { CountryModel } from "../pages/CountryMaster";
 import { StateModel } from "../pages/StateMaster";
 import { CityModel } from "../pages/CityMaster";
 import { BankMasterModel } from "../pages/BankMaster";
+import { BankAccountMasterModel } from "../pages/BankAccountMaster";
 
 
 
@@ -387,4 +388,16 @@ export const BankApi={
   UpdateBank:(data:BankMasterModel)=>{
   return axios.put('/bank',data)
   }
+}
+
+
+//----- Bank Account Master  ------//
+
+export const BankACapi = {
+  AddBankAccountApi:(data:BankAccountMasterModel) => {
+    return axios.post("/bank/account",  data)
+  },
+  getAllBanckAccountType:()=>{
+    return axios.get('/bank/account')
+    },
 }
