@@ -36,7 +36,7 @@ const navLinks = [
     group: "Global Masters",
     url: "/",
     links: [
-      { name: "Pincode Master", url: "/pincodemaster" , icon : 'fa-solid fa-sitemap'},
+      { name: "Pincode Master", url: "/pincodemaster" , icon : 'fa-brands fa-pinterest-p'},
       {name: 'Country Master' ,url:'/country' , icon :'fa-solid fa-globe'},
       {name: 'State Master' ,url:'/state' , icon :'fa-solid fa-flag-usa'},
       {name: 'City Master' ,url:'/city' , icon :'fa-solid fa-city'},
@@ -131,7 +131,7 @@ function Nav() {
         <div className="left">
           <Link className="flex items-center logo" to="">
             <img  src={import.meta.env.VITE_BACKEND_URL + `/uploads/${currentEntity}/logo_nav.png`} alt="" />
-            <h1 className="ml-4 text-2xl font-semibold">ACT-GLOBAL</h1>
+            <h1 className="ml-4 text-2xl font-semibold">GLOBAL-MASTERS</h1>
           </Link>
         </div>
         <div className="flex justify-end right">
