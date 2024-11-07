@@ -5,7 +5,7 @@ import Modal from "../components/Modal/Modal";
 import useTable from "../components/Table/Table";
 import { useOnInputState } from "./PincodeMaster";
 import { useOnSubmit, useValue } from "../hooks/form";
-import { BankACapi, CurrencyApi, requestHandler } from "../utils/api";
+import {  CurrencyApi, requestHandler } from "../utils/api";
 import { toastError, toastSuccess } from "../utils/SweetAlert";
 
 
@@ -181,7 +181,6 @@ const CurrencyMaster = () => {
            <fieldset disabled={action === "View"}>
              <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
                {/* <InputField required label="Country code" placeholder="Eg. 12" {...FieldAttributes('country_code')} /> */}
-                    
                     <InputField
                        required
                         disabled = {action == 'Edit'}
@@ -189,14 +188,12 @@ const CurrencyMaster = () => {
                        placeholder="INR"
                        {...FieldAttributes("CURR_CODE")}
                      />     
-
                    <InputField
                        required
                        label="Currency Name"
                        placeholder="Indian Rupees"
                        {...FieldAttributes("CURR_NAME")}
                      />
-                     
                    <InputField
                        required
                        label="Currency Short notation"
