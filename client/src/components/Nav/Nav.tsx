@@ -42,6 +42,9 @@ const navLinks = [
       {name: 'City Master' ,url:'/city' , icon :'fa-solid fa-city'},
       {name: 'Bank Master' ,url:'/bank' , icon :'fa-solid fa-money-bill'},
       {name: 'Bank Account Master' ,url:'/bankAccount' , icon :'fa-solid fa-money-bill'},
+      {name: 'Currency Master' ,url:'/currency' , icon :'fa-solid fa-money-bill'},
+
+      
 
 
 
@@ -126,23 +129,23 @@ function Nav() {
     <>
       <header className="mainHeader">
         <div className="left">
-          <Link className="logo flex items-center" to="">
+          <Link className="flex items-center logo" to="">
             <img  src={import.meta.env.VITE_BACKEND_URL + `/uploads/${currentEntity}/logo_nav.png`} alt="" />
-            <h1 className="font-semibold text-2xl ml-4">ACT-GLOBAL</h1>
+            <h1 className="ml-4 text-2xl font-semibold">ACT-GLOBAL</h1>
           </Link>
         </div>
-        <div className="right flex justify-end">
+        <div className="flex justify-end right">
           {/* <PageSearchComponent pages={pageAccess?.map(_=>(_.url))} /> */}
             <>
               {user.is_superadmin ? (
-                <div className="flex flex-row relative items-center mr-3">
+                <div className="relative flex flex-row items-center mr-3">
                   <select
                     title="Entity"
                     value={currentEntity ? currentEntity : ""}
                     onChange={(e) => {
                       setccurrentEntity(Number(e.target.value));
                     }}
-                    className="appearance-none rounded pl-3 pr-16 h-full bg-slate-700 text-gray-400"
+                    className="h-full pl-3 pr-16 text-gray-400 rounded appearance-none bg-slate-700"
                   >
                     <option value="">Select Entity</option>
                     {entities.map((entity, index) => (
@@ -151,12 +154,12 @@ function Nav() {
                       </option>
                     ))}
                   </select>
-                  <i className="fa-solid fa-building text-gray-500 absolute text-2xl right-3"></i>
+                  <i className="absolute text-2xl text-gray-500 fa-solid fa-building right-3"></i>
                 </div>
               ) : (
                 ""
               )}
-              <div className="flex flex-row relative items-center mobile-branch-selector">
+              <div className="relative flex flex-row items-center mobile-branch-selector">
                 <select
                   title="Branch"
                   value={(currentBranch && currentBranch.branch_id) ? currentBranch.branch_id : ""}
@@ -167,7 +170,7 @@ function Nav() {
                     });
                   }}
                   disabled={!!user.is_staff}
-                  className="appearance-none rounded pl-3 pr-16 h-full bg-slate-700 text-gray-400"
+                  className="h-full pl-3 pr-16 text-gray-400 rounded appearance-none bg-slate-700"
                 >
                   <option value="">Select Branch</option>
                   {branchAccess.map((branch, index) => (
@@ -176,10 +179,10 @@ function Nav() {
                     </option>
                   ))}
                 </select>
-                <i className="fa-solid fa-sitemap text-gray-500 absolute text-2xl right-3"></i>
+                <i className="absolute text-2xl text-gray-500 fa-solid fa-sitemap right-3"></i>
               </div>
 
-              <div className="border mx-5 border-gray-600"></div>
+              <div className="mx-5 border border-gray-600"></div>
             </>
 
           <div className="profile_wrapper">
@@ -187,8 +190,8 @@ function Nav() {
               <img src={profileImg} alt="" />
             </div>
             <div className="name_wrapper">
-              <div className="name flex items-center flex-wrap">
-                <div className="w-full text-start pl-1">{user.user_name} </div>
+              <div className="flex flex-wrap items-center name">
+                <div className="w-full pl-1 text-start">{user.user_name} </div>
                 <p className="flex items-center text-[9px] font-light px-1 py-0 rounded-full text-blue-300 border border-blue-300 h-[15px] mt-1">
                   {user.role_name}
                 </p>
@@ -199,7 +202,7 @@ function Nav() {
               <ul className="profileDropdownMenu">
                 <li>
                   <Link className="link" to="/changePassword">
-                    <i className="fa-solid fa-key mr-3"></i>
+                    <i className="mr-3 fa-solid fa-key"></i>
                     Change Password
                   </Link>
                 </li>
@@ -222,7 +225,7 @@ function Nav() {
                     }}
                     className="link"
                   >
-                    <i className="fa-solid fa-arrow-right-from-bracket mr-2"></i>
+                    <i className="mr-2 fa-solid fa-arrow-right-from-bracket"></i>
                     Logout
                   </button>
                 </li>
@@ -235,7 +238,7 @@ function Nav() {
         <div className="main_wrapper">
           <div className="wrapper">
             <div className="logo">
-              <h1 className="font-semibold text-2xl text-blue-500">ACT-GLOBAL</h1>
+              <h1 className="text-2xl font-semibold text-blue-500">ACT-GLOBAL</h1>
             </div>
             <div className="mx-auto block md:hidden w-[177px]" >
             </div>
@@ -333,7 +336,7 @@ function Nav() {
                           alert(`Logout failed: ${err.message}`);
                         });
                       }}
-                      className="link text-red-500 ml-5 "
+                      className="ml-5 text-red-500 link "
                     >
                       Logout
                     </button>
@@ -343,14 +346,14 @@ function Nav() {
               <li>
                 <>
                   {user.is_superadmin ? (
-                    <div className="flex flex-row relative items-center mr-3 w-full md:hidden">
+                    <div className="relative flex flex-row items-center w-full mr-3 md:hidden">
                       <select
                         title="Entity"
                         value={currentEntity ? currentEntity : ""}
                         onChange={(e) => {
                           setccurrentEntity(Number(e.target.value));
                         }}
-                        className="appearance-none rounded pl-3 pr-16 h-full bg-slate-700 text-gray-400 w-full"
+                        className="w-full h-full pl-3 pr-16 text-gray-400 rounded appearance-none bg-slate-700"
                       >
                         <option value="">Select Entity</option>
                         {entities.map((entity, index) => (
@@ -359,12 +362,12 @@ function Nav() {
                           </option>
                         ))}
                       </select>
-                      <i className="fa-solid fa-building text-gray-500 absolute text-2xl right-3"></i>
+                      <i className="absolute text-2xl text-gray-500 fa-solid fa-building right-3"></i>
                     </div>
                   ) : (
                     ""
                   )}
-                  <div className="flex flex-row relative items-center mt-3 w-full  md:hidden">
+                  <div className="relative flex flex-row items-center w-full mt-3 md:hidden">
                     <select
                       title="Branch"
                       value={(currentBranch && currentBranch.branch_id) ? currentBranch.branch_id : ""}
@@ -375,7 +378,7 @@ function Nav() {
                         });
                       }}
                       disabled={!!user.is_staff}
-                      className="appearance-none rounded pl-3 pr-16 h-full bg-slate-700 text-gray-400 w-full"
+                      className="w-full h-full pl-3 pr-16 text-gray-400 rounded appearance-none bg-slate-700"
                     >
                       <option value="">Select Branch</option>
                       {branchAccess.map((branch, index) => (
@@ -384,7 +387,7 @@ function Nav() {
                         </option>
                       ))}
                     </select>
-                    <i className="fa-solid fa-sitemap text-gray-500 absolute text-2xl right-3"></i>
+                    <i className="absolute text-2xl text-gray-500 fa-solid fa-sitemap right-3"></i>
                   </div>
 
                 </>
@@ -493,7 +496,7 @@ function Nav() {
 //           <ul className="absolute bg-white w-[95%] m-2 p-2 rounded z-50 shadow-md max-h-[350px] overflow-y-auto">
 //             {
 //               pageData.filteredPages.length < 1 ?
-//                 <li className="text-sm border-b text-start py-3 px-2 hover:bg-gray-100 cursor-pointer text-gray-500">
+//                 <li className="px-2 py-3 text-sm text-gray-500 border-b cursor-pointer text-start hover:bg-gray-100">
 //                   No pages found
 //                 </li> :
 //                 pageData.filteredPages.map((_, index) => (

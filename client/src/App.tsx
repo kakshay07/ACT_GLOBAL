@@ -26,6 +26,7 @@ import { StateMaster } from './pages/StateMaster';
 import { CityMaster } from './pages/CityMaster';
 import { BankMaster } from './pages/BankMaster';
 import BankAccountMaster from './pages/BankAccountMaster';
+import CurrencyMaster from './pages/Currency';
 
 // import { CustomerProfile } from './pages/CustomerProfile';
 // import PincodeMaster from './pages/PincodeMaster';
@@ -240,6 +241,14 @@ export default function App() {
                     element={
                         <RequireAuth>
                         <BankAccountMaster />
+                        </RequireAuth>
+                    }></Route>
+
+<Route
+                    path='/currency'
+                    element={
+                        <RequireAuth>
+                        <CurrencyMaster />
                         </RequireAuth>
                     }></Route>
 
