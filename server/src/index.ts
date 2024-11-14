@@ -13,7 +13,8 @@ import {stateRouter} from './routes/state.routes'
 import {cityRouter} from './routes/cities.routes'
 import {bankRouter} from './routes/bank.routes'
 import pdfRouter from "./routes/pdf.routes";
-import {pincodeRouter} from './routes/pincode.routes'
+import {pincodeRouter} from './routes/pincode.routes';
+import {CurrencyRouter} from './routes/currency.routes'
 
 import fs from 'fs'
 import dotenv from 'dotenv';
@@ -67,6 +68,7 @@ app.use('/state',stateRouter);
 app.use('/city',cityRouter);
 app.use('/bank',bankRouter);
 app.use('/pincode', pincodeRouter);
+app.use('/currency',CurrencyRouter)
 
 app.use(errorHandler);
 

@@ -14,6 +14,7 @@ import { StateModel } from "../pages/StateMaster";
 import { CityModel } from "../pages/CityMaster";
 import { BankMasterModel } from "../pages/BankMaster";
 import { BankAccountMasterModel } from "../pages/BankAccountMaster";
+import { CurrencyMasterModel } from "../pages/Currency";
 
 
 
@@ -403,4 +404,19 @@ export const BankACapi = {
     updateBankAccount :(data:BankAccountMasterModel)=>{
       return axios.put('/bank/account',data)
     }
+}
+
+
+// ---Currency ---//
+
+export const CurrencyApi = {
+  AddCuurencyApi:(data:CurrencyMasterModel) => {
+    return axios.post('/currency',data)
+  },
+  getAllCurrencyApi: () => {
+    return axios.get('/currency')
+  },
+  updatecurrencyApi:(data:CurrencyMasterModel) => {
+    return axios.put('/currency',data)
+  }
 }
