@@ -141,7 +141,7 @@ const CurrencyMaster = () => {
        <thead>
          <tr>
            <th>Sl</th>
-           <th>Currecy Name</th>
+           <th>Currency name</th>
            <th>Currency short notation</th>
            <th>Action</th>
          </tr>
@@ -190,13 +190,13 @@ const CurrencyMaster = () => {
                      />     
                    <InputField
                        required
-                       label="Currency Name"
+                       label="Currency name"
                        placeholder="Indian Rupees"
                        {...FieldAttributes("CURR_NAME")}
                      />
                    <InputField
                        required
-                       label="Currency Short notation"
+                       label="Currency short notation"
                        placeholder="Eg.Rs"
                        {...FieldAttributes("CURR_SHORT_NOTATION")}
                      />
