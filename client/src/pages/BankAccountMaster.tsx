@@ -87,7 +87,25 @@ const BankAccountMaster = () => {
               });
             }
           );
-        }
+        }else if(action=='Edit'){
+          requestHandler(
+              async ()=>{ return await BankACapi.updateBankAccount(data)},
+              (data)=>{
+                if(data.success){
+                  toastSuccess.fire({
+                    title : data.message 
+                  })
+                }
+                setmodalOpen(false);
+                GetAllBankAccountType();
+              },
+              (errorMessage)=>{
+                toastError.fire({
+                  title : errorMessage
+                })
+              }
+            )
+      }
       });
       
 
@@ -148,7 +166,7 @@ const BankAccountMaster = () => {
                      setmodalOpen(true);
                    }}
                    view
-                //    edit
+                   edit
                    // deletee
                  />
                </td>
@@ -167,6 +185,7 @@ const BankAccountMaster = () => {
 
                    <InputField
                        required
+                       disabled={action=='Edit'}
                        label="Account type"
                        placeholder="CAA"
                        {...FieldAttributes("ACNT_TYPE")}

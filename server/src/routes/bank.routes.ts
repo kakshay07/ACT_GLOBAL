@@ -136,6 +136,32 @@ bankRouter.get(
     )
   );
 
+  bankRouter.put(
+    '/account',
+    asyncHandler(
+      async (
+        req: Request<
+          unknown,
+          unknown,
+         {
+          ACNT_TYPE?:string;
+          ACNT_DESC?:string;
+         },
+          unknown
+        //   {}
+        >,
+        res
+      ) => {
+        const data = await bankModel.UpdateBankAccount(String(req.body.ACNT_TYPE),String(req.body.ACNT_DESC));
+        if(data){
+          res.json(new ApiResponse(200 , {},"updated succesfully"))
+        }else {
+          throw new Error('something went wrong!')
+        }
+      }
+    )
+  );
+
   bankRouter.get('/account',
     asyncHandler(
         async (

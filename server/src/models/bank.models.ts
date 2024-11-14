@@ -70,5 +70,12 @@ static async UpdateBank(data:bankModel){
   }
   return;
 }
-
+static async UpdateBankAccount(ACNT_TYPE:string,ACNT_DESC:string){
+  const _query = 'Update `act-global`.bank_account_type SET  ACNT_DESC= ? where ACNT_TYPE= ?';
+  const response = await query(_query,[ACNT_DESC,ACNT_TYPE])
+  if (response.result) {
+    return response.data;
+  }
+  return;
+}
 }

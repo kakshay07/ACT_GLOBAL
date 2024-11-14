@@ -400,4 +400,7 @@ export const BankACapi = {
   getAllBanckAccountType:()=>{
     return axios.get('/bank/account')
     },
+    updateBankAccount :(data:BankAccountMasterModel)=>{
+      return axios.put('/bank/account',data)
+    }
 }
